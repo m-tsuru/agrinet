@@ -4,7 +4,7 @@
 
 #include "Adafruit_BME280.h"
 
-std::vector<uint8_t> Sensor::GetAllI2CDevice() {  // Sensor:: を追加
+std::vector<uint8_t> Sensor::getAllI2CDevice() {  // Sensor:: を追加
     std::vector<uint8_t> addresses;
     byte error;
 

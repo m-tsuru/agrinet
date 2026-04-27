@@ -18,7 +18,7 @@ class Sensor {
             float brightness;
         };
 
-        static std::vector<uint8_t> GetAllI2CDevice();
+        static std::vector<uint8_t> getAllI2CDevice();
         static V_BME280 getBME280Value(byte address);
         static V_BH1750 getBH1750Value(byte address);
 };
