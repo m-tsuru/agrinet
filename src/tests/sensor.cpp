@@ -64,7 +64,7 @@ void loop() {
                 break;
             }
             Serial0.print("No BH1750 at 0x");
-            Serial0.print(address, HEX);
+            Serial0.println(address, HEX);
         }
 
         // --- アナログ入力 1 ---
