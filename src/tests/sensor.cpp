@@ -26,9 +26,6 @@ void setup() {
     Wire.begin();
 
     Serial0.begin(SERIAL_BAUD);
-
-    Sensor::V_BME280 bme280_data{};
-    Sensor::V_BH1750 bh1750_data{};
 }
 
 void loop() {
