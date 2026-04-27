@@ -4,7 +4,8 @@
 
 #include "Adafruit_BME280.h"
 
-std::vector<uint8_t> Sensor::getAllI2CDevice() {  // Sensor:: を追加
+std::vector<uint8_t> Sensor::getAllI2CDevice() {
+    // Sensor:: を追加
     std::vector<uint8_t> addresses;
     byte error;
 
@@ -42,8 +43,3 @@ Sensor::V_BH1750 Sensor::getBH1750Value(byte address) {
 
     return {true, lightMeter.readLightLevel()};
 }
-
-
-
-
-

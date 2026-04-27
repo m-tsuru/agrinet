@@ -98,6 +98,5 @@ void loop() {
         Serial0.print(", ");
         Serial0.print(r3_voltage, 2);
         Serial0.println(" V");
-
     }
 }
