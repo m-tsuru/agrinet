@@ -17,12 +17,42 @@ public:
         bool success;
         float brightness;
     };
+    struct V_DS18B20 {
+        bool success;
+        float temperature;
+    };
+
+    struct V_Soil {
+        bool success;
+        int raw;
+        int percent;
+    };
+
+    struct V_TDS {
+        bool success;
+        int raw;
+    };
+
+    struct V_Battery {
+        bool success;
+        float voltage;
+        int percent;
+    };
 
     static std::vector<uint8_t> getAllI2CDevice();
 
     static V_BME280 getBME280Value(byte address);
 
     static V_BH1750 getBH1750Value(byte address);
+
+    static V_DS18B20 getDS18B20Value(uint8_t pin);
+
+    static V_Soil getSoilMoisture(uint8_t pin);
+    
+    static V_TDS getTDSValue(uint8_t pin);
+    
+    static V_Battery getBatteryValue(uint8_t pin);
+
 };
 
 #endif //AGRINET_SENSOR_H
