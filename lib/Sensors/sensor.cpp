@@ -1,8 +1,9 @@
-#include <Wire.h>
-#include <BH1750.h>
 #include "sensor.h"
-#include <OneWire.h>
+
+#include <BH1750.h>
 #include <DallasTemperature.h>
+#include <OneWire.h>
+#include <Wire.h>
 
 #include "Adafruit_BME280.h"
 
