@@ -25,7 +25,7 @@ public:
     struct V_Soil {
         bool success;
         int raw_soil;
-        int soil_moisture;
+        float soil_moisture_percent;
     };
 
     struct V_TDS {
@@ -36,7 +36,6 @@ public:
     struct V_Battery {
         bool success;
         float voltage_battery;
-        int percent;
     };
 
     static std::vector<uint8_t> getAllI2CDevice();
@@ -47,11 +46,12 @@ public:
 
     static V_DS18B20 getDS18B20Value(uint8_t pin);
 
-    static V_Soil getSoilMoisture(uint8_t pin);
-    
-    static V_TDS getTDSValue(uint8_t pin);
-    
-    static V_Battery getBatteryValue(uint8_t pin);
+    // 12bitコンバータ実装時のために計算をする関数に変更
+    static V_Soil computeSoilMoisture(int raw_adc, float cal_dry, float cal_wet);
+
+    static V_TDS computeTDSValue(int raw_adc);
+
+    static V_Battery computeBatteryVoltage(int raw_adc, float ref_voltage, float divider_ratio);
 
 };
 
