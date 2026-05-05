@@ -24,18 +24,18 @@ public:
 
     struct V_Soil {
         bool success;
-        int raw;
-        int percent;
+        int raw_soil;
+        int soil_moisture;
     };
 
     struct V_TDS {
         bool success;
-        int raw;
+        int raw_tds;
     };
 
     struct V_Battery {
         bool success;
-        float voltage;
+        float voltage_battery;
         int percent;
     };
 
