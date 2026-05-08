@@ -56,8 +56,8 @@ void loop() {
     if (lux.success)  { Serial.print("LUX:  "); Serial.println(lux.brightness); }
     if (temp.success) { Serial.print("TEMP: "); Serial.println(temp.temperature); }
     if (soil.success) { 
-        Serial.print("SOIL: "); Serial.print(soil.soil_moisture_percent); 
-        Serial.println(" % (Raw: " + String(soil.raw_soil) + ")"); 
+        Serial.print("SOIL: "); Serial.print(soil.soil_moisture_percent);
+        Serial.print(" % (Raw: "); Serial.print(soil.raw_soil); Serial.println(")");
     }
     if (tds.success)  { Serial.print("TDS:  "); Serial.println(tds.raw_tds); }
     if (bat.success)  { Serial.print("BATT: "); Serial.print(bat.voltage_battery, 2); Serial.println(" V"); }
