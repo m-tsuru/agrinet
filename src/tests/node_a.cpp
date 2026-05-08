@@ -48,9 +48,9 @@ void loop() {
     int tds_raw  = analogRead(PIN_TDS);
     int bat_raw  = analogRead(PIN_BAT);
 
-    Sensor::V_Soil    soil = Sensor::computeSoilMoisture(soil_raw, SOIL_CAL_DRY, SOIL_CAL_WET);
-    Sensor::V_TDS     tds  = Sensor::computeTDSValue(tds_raw);
-    Sensor::V_Battery bat  = Sensor::computeBatteryVoltage(bat_raw, VREF_VOLTAGE, BAT_DIVIDER_RATIO);
+    Sensor::V_Soil    soil = Sensor::calcSoilMoisture(soil_raw, SOIL_CAL_DRY, SOIL_CAL_WET);
+    Sensor::V_TDS     tds  = Sensor::calcTDSValue(tds_raw);
+    Sensor::V_Battery bat  = Sensor::calcBatteryVoltage(bat_raw, VREF_VOLTAGE, BAT_DIVIDER_RATIO);
 
     // ログ出力
     if (lux.success)  { Serial.print("LUX:  "); Serial.println(lux.brightness); }
