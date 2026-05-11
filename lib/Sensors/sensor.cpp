@@ -72,16 +72,20 @@ Sensor::V_Soil Sensor::calcSoilMoisture(int raw_adc, float cal_dry, float cal_we
     float percent = (cal_dry - (float)raw_adc) / (cal_dry - cal_wet) * 100.0f;
     if (percent < 0.0f) percent = 0.0f;
     if (percent > 100.0f) percent = 100.0f;
+
+    if (cal_dry == cal_wet) { // キャリブレーションエラーの回避
+        return {false, raw_adc, 0.0f};
+    }
     
     return {true, raw_adc, percent};
 }
 
-Sensor::V_TDS Sensor::calcTDSValue(int raw_adc) {
+Sensor::V_TDS Sensor::getTDSValue(int raw_adc) {
     return {true, raw_adc};
 }
 
-Sensor::V_Battery Sensor::calcBatteryVoltage(int raw_adc, float ref_voltage, float divider_ratio) {
-    float pin_voltage = (float)raw_adc * (ref_voltage / 1023.0f);
+Sensor::V_Battery Sensor::calcBatteryVoltage(int raw_adc, float ref_voltage, float divider_ratio, float AnalogMaxValue) {
+    float pin_voltage = (float)raw_adc * (ref_voltage / AnalogMaxValue);
     float battery_voltage = pin_voltage * divider_ratio;
     
     return {true, battery_voltage};

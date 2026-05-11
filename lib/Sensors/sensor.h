@@ -49,9 +49,9 @@ public:
     // 12bitコンバータ実装時のために計算をする関数に変更
     static V_Soil calcSoilMoisture(int raw_adc, float cal_dry, float cal_wet);
 
-    static V_TDS calcTDSValue(int raw_adc);
+    static V_TDS getTDSValue(int raw_adc);
 
-    static V_Battery calcBatteryVoltage(int raw_adc, float ref_voltage, float divider_ratio);
+    static V_Battery calcBatteryVoltage(int raw_adc, float ref_voltage, float divider_ratio, float AnalogMaxValue);
 
 };
 

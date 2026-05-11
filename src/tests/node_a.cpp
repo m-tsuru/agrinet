@@ -14,6 +14,7 @@ const float SOIL_CAL_DRY = 660.0f;
 const float SOIL_CAL_WET = 200.0f;
 const float VREF_VOLTAGE = 3.3f;
 const float BAT_DIVIDER_RATIO = 2.0f;
+const float AnalogMaxValue = 1023.0f; // 10-bit ADC
 
 void setup() {
     Serial.setTx(PB6);
@@ -49,8 +50,8 @@ void loop() {
     int bat_raw  = analogRead(PIN_BAT);
 
     Sensor::V_Soil    soil = Sensor::calcSoilMoisture(soil_raw, SOIL_CAL_DRY, SOIL_CAL_WET);
-    Sensor::V_TDS     tds  = Sensor::calcTDSValue(tds_raw);
-    Sensor::V_Battery bat  = Sensor::calcBatteryVoltage(bat_raw, VREF_VOLTAGE, BAT_DIVIDER_RATIO);
+    Sensor::V_TDS     tds  = Sensor::getTDSValue(tds_raw);
+    Sensor::V_Battery bat  = Sensor::calcBatteryVoltage(bat_raw, VREF_VOLTAGE, BAT_DIVIDER_RATIO, AnalogMaxValue);
 
     // ログ出力
     if (lux.success)  { Serial.print("LUX:  "); Serial.println(lux.brightness); }

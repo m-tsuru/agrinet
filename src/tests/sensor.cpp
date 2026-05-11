@@ -15,8 +15,6 @@
 
 int r1, r2, r3;
 float r1_voltage, r2_voltage, r3_voltage;
-float analog_max = 1024.0f; // 10-bit ADCの場合
-
 HardwareSerial Serial0(SERIAL_RX, SERIAL_TX);
 
 static const uint8_t BME280_ADDRESSES[] = {0x76, 0x77};
